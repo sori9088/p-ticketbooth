@@ -1,0 +1,17 @@
+<div class="row">
+  {% for event in events %}
+  <div class="col-6 d-flex align-items-stretch">
+    <div class="card" style="width: 30rem;">
+      <img src={{event.img_url}} class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{event.title}}</h5>
+        <p class="card-text">{{event.description}}</p>
+        <small>{{event.venue_name}}, {{event.location}}</small>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{event.date}} {{event.time}}</small>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

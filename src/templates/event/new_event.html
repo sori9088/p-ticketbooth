@@ -1,0 +1,65 @@
+{% extends './base.html' %}
+
+
+
+{% block content %}
+<div class="container my-5">
+    <form class="form-newevent" method="POST">
+        <div class="form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-pencil-alt"></i></span>
+                <input name='title' type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Event Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-image"></i></span>
+                <input name='img_url' type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Banner URL">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-compass"></i></span>
+                <input name='venue_name' type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Venue Name">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marked-alt"></i></span>
+                <input name='address' type="text" class="form-control" id="exampleFormControlInput1"
+                    placeholder="Address">
+            </div>
+        </div>
+        <div class="form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                    <input name='organizer' type="text" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Organizer">
+                </div>
+            </div>
+        <div class="form-group d-flex justify-content-between">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-check"></i></span>
+                <input name='date' type="date" required="required">
+            </div>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-clock"></i></span>
+                <input name='time' type="time" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+
+            <textarea name='description' class="form-control" id="exampleFormControlTextarea1" rows="3"
+                placeholder="Description"></textarea>
+        </div>
+        <button type="submit">submit</button>
+
+    </form>
+</div>
+</div>
+
+{% endblock %}

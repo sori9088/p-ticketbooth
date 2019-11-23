@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light transparent">
+  <h1 class="navbar-brand" href="#">Ticket Booth</h1>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href={{url_for('root')}}>Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+    {% if not current_user.is_authenticated %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href={{url_for('login') }} class="btn btn-outline-dark">Login</a>
+      </li>
+      <li><a href={{url_for('register') }} class="btn btn-outline-dark">Sign Up</a>
+      </li>
+    </ul>
+    {% else %}
+    <ul class="nav navbar-nav navbar-right mr-5">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src={{current_user.avatar_url}} width="40"
+            height="40" class="rounded-circle">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href={{url_for('logout') }}>Logout</a>
+          <a class="dropdown-item" href="#">Edit Profile</a>
+          <a class="dropdown-item" href={{url_for('userbp.dashboard') }}>Dashboard</a>
+        </div>
+
+    </ul>
+
+    {% endif %}
+  </div>
+</nav>
