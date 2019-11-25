@@ -193,6 +193,9 @@ body {
     color: #ffffff;
   }
   
+.card {
+  margin-top : 1rem;
+}
 
 .card > img {
   height: 13rem;
@@ -208,6 +211,11 @@ body {
     text-align: center;
     -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+
+  }
+
+  .form-newevent > h2 {
+    font-family: 'Mukta';
 
   }
 
@@ -279,4 +287,50 @@ input[type="time"], focus {
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
+}
+
+.stretched-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0,0,0,0);
+}
+
+a {
+  color: #343a40;
+}
+
+a:hover{
+ color: #343a40;
+}
+
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+.tab {
+  display: none;
 }

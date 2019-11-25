@@ -14,6 +14,8 @@ class User(UserMixin, db.Model) :
     password = db.Column(db.String(200),nullable=False)
     orders = db.relationship('Order', backref='user', lazy=True)
     admin = db.Column(db.Boolean, default=False)
+    events = db.relationship('Event', backref='user', lazy=True)
+
     
     def set_password(self, password) :
         self.password = generate_password_hash(password)
@@ -28,6 +30,7 @@ class User(UserMixin, db.Model) :
 
 class Event(db.Model) :
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     title = db.Column(db.String(80), nullable=False)
     img_url = db.Column(db.String(200), default='https://i-love-png.com/images/no-image-slide.png')
     description = db.Column(db.Text)
@@ -41,15 +44,15 @@ class Event(db.Model) :
 
 class Order(db.Model) :
     id = db.Column(db.Integer, primary_key=True)
-    type = db.Column(db.String(20), nullable=False)
+    order_type = db.Column(db.String(20), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     orderitems = db.relationship('OrderItems', backref='order', lazy=True)
 
 class Ticket(db.Model) :
     id = db.Column(db.Integer, primary_key=True)
-    type = db.Column(db.String(20), nullable=False)
-    event_id = db.Column(db.Integer, db.ForeignKey('event.id'), nullable=False)
-    price = db.Column(db.String, nullable=False)
+    tic_type = db.Column(db.String(20), nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('event.id'))
+    price = db.Column(db.Integer, nullable=False)
     orderitems = db.relationship('OrderItems', backref='ticket', lazy=True)
     quantity = db.Column(db.Integer, nullable=False)
 
